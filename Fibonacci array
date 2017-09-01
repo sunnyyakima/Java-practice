@@ -1,0 +1,31 @@
+
+
+public class Fibonacci {
+   public static int getFib(int n) {
+      if(n <= 2) { return 1; }
+      else { return getFib(n-1) + getFib(n-2); }
+   }
+
+   public static int[] getFibArray(int m) {
+     int[] result = new int[m];
+     for(int i = 0; i < m; i++){
+         result[i] = getFib(i+1);
+     }
+     return result; 
+   }
+
+   public static void main(String[] args) {
+      int m = Integer.parseInt(args[0]);
+      int[] fibs = getFibArray(m);
+      int sum = 0;
+      for (int i = 0; i < fibs.length; i++) { 
+         System.out.print(fibs[i]+" ");
+         sum += fibs[i]; 
+      }
+      float average = sum/m;
+      System.out.print("\nAvarage is ");
+      System.out.printf("%.1f", average);
+      System.out.print("\n");
+//      System.out.println(java.util.Arrays.toString(fibs));
+   }
+}  
