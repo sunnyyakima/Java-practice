@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Robot2 {
+	public static class Robot {
+		Robot(String rName) {
+			this.setRobotName(rName);
+		}
+		public String getRobotName() {
+			return robotName;
+		}
+		public void setRobotName(String robotName) {
+			this.robotName = robotName;
+		}
+		private String robotName;
+	}
+
+	public static void main(String[] args) {
+		Robot robot = new Robot(args[0]);
+		while (true) {
+			Scanner scan = new Scanner(System.in);
+			if (robot.getRobotName().equals("Judy")) {
+				switch (scan.next()) {
+				case "Hi":
+					System.out.println("Judy: Hi honey");
+					break;
+				case "Ping":
+					System.out.println("Judy: Pong");
+					break;
+				case "Bye":
+					System.out.println("Judy: See you");
+					scan.close();
+					System.exit(1);
+				default:
+					System.out.println("No match answer!");
+					break;
+				}
+			}
+			if (robot.getRobotName().equals("Max")) {
+				switch (scan.next()) {
+				case "Hi":
+					System.out.println("Max: Hi what's up");
+					break;
+				case "Ping":
+					System.out.println("Max: Ping");
+					break;
+				case "Bye":
+					System.out.println("Max: 8");
+					scan.close();
+					System.exit(1);
+				default:
+					System.out.println("No match answer!");
+					break;
+				}
+			}
+		}
+	}
+}
+
