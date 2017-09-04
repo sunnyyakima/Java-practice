@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Robot {
+	public static void main(String[] args) {
+		String robot = new String(args[0]);
+		while (true) {
+			Scanner scan = new Scanner(System.in);
+			if (robot.equals("Judy")) {
+				switch (scan.next()) {
+				case "Hi":
+					System.out.println("Judy: Hi honey");
+					break;
+				case "Ping":
+					System.out.println("Judy: Pong");
+					break;
+				case "Bye":
+					System.out.println("Judy: See you");
+					System.exit(1);
+				default:
+					System.out.println("No match answer!");
+					break;
+				}
+			}
+			if (robot.equals("Max")) {
+				switch (scan.next()) {
+				case "Hi":
+					System.out.println("Max: Hi what's up");
+					break;
+				case "Ping":
+					System.out.println("Max: Ping");
+					break;
+				case "Bye":
+					System.out.println("Max: 8");
+					System.exit(1);
+				default:
+					System.out.println("No match answer!");
+					break;
+				}
+				// TODO Auto-generated method stub
+
+			}
+		}
+	}
+}
