@@ -1,0 +1,65 @@
+
+import java.util.Scanner;
+
+public class SuperRobot {
+
+	abstract static class Robot {
+
+		static String[] Questions = { "Hi", "Ping", "Bye" };
+		String name;
+		String[] answer; // = { "Hi honey", "Pong", "See you" };
+
+		public int getQuesIndex(String ques) {
+			for (int i = 0; i < Questions.length; i++) {
+				if (ques.equalsIgnoreCase(Questions[i])) {
+					return i;
+				}
+			}
+			return -1;
+		}
+
+		public void printAnswer(int quesIndex) {
+			if (quesIndex == -1) {
+				System.out.println("No match found");
+			} else if (quesIndex == 2) {
+				System.out.println(answer[quesIndex]);
+				System.exit(1);
+			} else {
+				System.out.println(answer[quesIndex]);
+			}
+		}
+	}
+
+	static class Judy extends Robot {
+		String[] myAnswer = { "Hi honey", "Pong", "See you" };
+
+		Judy() {
+			this.name = "Judy";
+			this.answer = myAnswer;
+		}
+	}
+
+	static class Max extends Robot {
+		String[] myAnswer = { " What's up", "Ping", "8" }; 
+		Max() {
+			this.name = "Max";
+			this.answer = myAnswer;
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Robot robot = null;
+		if (args[0].equalsIgnoreCase("Judy")) {
+			robot = new Judy();
+		} else if (args[0].equals("Max")) {
+			robot = new Max();
+		}
+
+		Scanner scan = new Scanner(System.in);
+		while (true) {
+			int ind = robot.getQuesIndex(scan.next());
+			robot.printAnswer(ind);
+		}
+	}
+}
