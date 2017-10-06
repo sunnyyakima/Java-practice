@@ -4,7 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-
+// BufferedOutputStream is used to reduce the number of IO to disc
+// flush has to used in this example, otherwise the outfile is empty due to the small size
 public class combineStream {
 
 	public static void main(String[] args) throws UnsupportedEncodingException, IOException {
